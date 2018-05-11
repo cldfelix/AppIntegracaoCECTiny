@@ -1,0 +1,2338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:tinywsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:tinywsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:tinywsdl">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="pesquisarVendedoresServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pesquisa" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="situacao" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+    <wsdl:part name="ordem" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarVendedoresServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContatosServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pesquisa" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="situacao" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+    <wsdl:part name="ordem" type="xsd:string" />
+    <wsdl:part name="idVendedor" type="xsd:int" />
+    <wsdl:part name="nomeVendedor" type="xsd:string" />
+    <wsdl:part name="dataCriacao" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContatosServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterContatoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterContatoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContatoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="contato" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContatoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarContatoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="contato" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarContatoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarGruposTagServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pesquisa" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+    <wsdl:part name="ordem" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarGruposTagServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirGrupoTagServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="grupo" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirGrupoTagServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarGrupoTagServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="grupo" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarGrupoTagServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarTagServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pesquisa" type="xsd:string" />
+    <wsdl:part name="idGrupo" type="xsd:int" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+    <wsdl:part name="ordem" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarTagServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirTagServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="tag" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirTagServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarTagServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="tag" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarTagServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarListasPrecosServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pesquisa" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarListasPrecosServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterListasPrecosExcecoesServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="idListaPreco" type="xsd:integer" />
+    <wsdl:part name="idProduto" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterListasPrecosExcecoesServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarProdutosServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pesquisa" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+    <wsdl:part name="ordem" type="xsd:string" />
+    <wsdl:part name="idTag" type="xsd:string" />
+    <wsdl:part name="idListaPreco" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarProdutosServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterProdutoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterProdutoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterAnexosProdutoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterAnexosProdutoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirProdutoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="produto" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirProdutoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarProdutoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="produto" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarProdutoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="atualizarEstoqueProdutoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="estoque" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="atualizarEstoqueProdutoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterEstoqueProdutoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterEstoqueProdutoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterEstruturaProdutoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterEstruturaProdutoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterTagsProdutoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterTagsProdutoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="listaAtualizacoesProdutosServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="dataAlteracao" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="listaAtualizacoesProdutosServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="listaAtualizacoesEstoqueServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="dataAlteracao" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="listaAtualizacoesEstoqueServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarPedidosServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="numero" type="xsd:string" />
+    <wsdl:part name="cliente" type="xsd:string" />
+    <wsdl:part name="cpf_cnpj" type="xsd:string" />
+    <wsdl:part name="dataInicial" type="xsd:string" />
+    <wsdl:part name="dataFinal" type="xsd:string" />
+    <wsdl:part name="situacao" type="xsd:string" />
+    <wsdl:part name="numeroEcommerce" type="xsd:string" />
+    <wsdl:part name="idVendedor" type="xsd:string" />
+    <wsdl:part name="nomeVendedor" type="xsd:string" />
+    <wsdl:part name="dataInicialOcorrencia" type="xsd:string" />
+    <wsdl:part name="dataFinalOcorrencia" type="xsd:string" />
+    <wsdl:part name="situacaoOcorrencia" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+    <wsdl:part name="ordem" type="xsd:string" />
+    <wsdl:part name="sort" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarPedidosServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterPedidoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterPedidoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirPedidoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pedido" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirPedidoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarSituacaoPedidoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="situacao" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarSituacaoPedidoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirMarcadoresPedidoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="idPedido" type="xsd:integer" />
+    <wsdl:part name="marcadores" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirMarcadoresPedidoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="removerMarcadoresPedidoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="idPedido" type="xsd:integer" />
+    <wsdl:part name="marcadores" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="removerMarcadoresPedidoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarNotasFiscaisServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="serie" type="xsd:string" />
+    <wsdl:part name="numero" type="xsd:string" />
+    <wsdl:part name="cliente" type="xsd:string" />
+    <wsdl:part name="cpf_cnpj" type="xsd:string" />
+    <wsdl:part name="dataInicial" type="xsd:string" />
+    <wsdl:part name="dataFinal" type="xsd:string" />
+    <wsdl:part name="situacao" type="xsd:string" />
+    <wsdl:part name="numeroEcommerce" type="xsd:string" />
+    <wsdl:part name="idVendedor" type="xsd:string" />
+    <wsdl:part name="nomeVendedor" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+    <wsdl:part name="ordem" type="xsd:string" />
+    <wsdl:part name="tipoNota" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarNotasFiscaisServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterNotaFiscalServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterNotaFiscalServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirNotaFiscalServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="nota" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="preValidarNota" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirNotaFiscalServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterXMLNotaFiscalRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="obterXMLNotaFiscalResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterXMLNotaFiscalServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="obterXMLNotaFiscalServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterLinkNotaFiscalServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterLinkNotaFiscalServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="emitirNotaFiscalServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="serie" type="xsd:string" />
+    <wsdl:part name="numero" type="xsd:string" />
+    <wsdl:part name="enviarEmail" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="emitirNotaFiscalServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarNotasServicoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="serie" type="xsd:string" />
+    <wsdl:part name="numero" type="xsd:string" />
+    <wsdl:part name="numeroRPS" type="xsd:string" />
+    <wsdl:part name="cliente" type="xsd:string" />
+    <wsdl:part name="cpf_cnpj" type="xsd:string" />
+    <wsdl:part name="dataInicial" type="xsd:string" />
+    <wsdl:part name="dataFinal" type="xsd:string" />
+    <wsdl:part name="situacao" type="xsd:string" />
+    <wsdl:part name="idVendedor" type="xsd:string" />
+    <wsdl:part name="nomeVendedor" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+    <wsdl:part name="ordem" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarNotasServicoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterNotaServicoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterNotaServicoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirNotaServicoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="nota" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirNotaServicoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="enviarNotaServicoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="enviarEmail" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="enviarNotaServicoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarNotaServicoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="enviarEmail" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="consultarNotaServicoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContratosServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="cliente" type="xsd:string" />
+    <wsdl:part name="cpf_cnpj" type="xsd:string" />
+    <wsdl:part name="dataInicial" type="xsd:string" />
+    <wsdl:part name="dataFinal" type="xsd:string" />
+    <wsdl:part name="situacao" type="xsd:string" />
+    <wsdl:part name="idVendedor" type="xsd:string" />
+    <wsdl:part name="nomeVendedor" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+    <wsdl:part name="ordem" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContratosServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterContratoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterContratoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContratoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="contrato" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContratoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarContratoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="contrato" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarContratoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContratoAdicionalServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="adicional" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContratoAdicionalServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContratoAdicionalServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="idContrato" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContratoAdicionalServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="excluirContratoAdicionalServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="excluirContratoAdicionalServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="gerarOrdemProducaPedidoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="lancarEstoque" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="gerarOrdemProducaPedidoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="gerarNotaFiscalPedidoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="gerarNotaFiscalPedidoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="cadastrarCodigoRastreamentoPedidoServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="codigoRastreamento" type="xsd:string" />
+    <wsdl:part name="urlRastreamento" type="xsd:string" />
+    <wsdl:part name="formaEnvio" type="xsd:string" />
+    <wsdl:part name="transportadora" type="xsd:string" />
+    <wsdl:part name="volumes" type="xsd:string" />
+    <wsdl:part name="pesoBruto" type="xsd:string" />
+    <wsdl:part name="pesoLiquido" type="xsd:string" />
+    <wsdl:part name="dataPrevista" type="xsd:string" />
+    <wsdl:part name="observacoes" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="cadastrarCodigoRastreamentoPedidoServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="cadastrarCodigoRastreamentoNotaFiscalServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="notafiscal" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="cadastrarCodigoRastreamentoNotaFiscalServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="listarEstagiosAssuntosRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="listarEstagiosAssuntosResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarAssuntosCRMRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pesquisa" type="xsd:string" />
+    <wsdl:part name="estagioCliente" type="xsd:string" />
+    <wsdl:part name="estagioAssunto" type="xsd:string" />
+    <wsdl:part name="situacaoAssunto" type="xsd:string" />
+    <wsdl:part name="filtroPor" type="xsd:string" />
+    <wsdl:part name="dataInicial" type="xsd:string" />
+    <wsdl:part name="dataFinal" type="xsd:string" />
+    <wsdl:part name="idVendedor" type="xsd:string" />
+    <wsdl:part name="nomeVendedor" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarAssuntosCRMResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterAssuntoCRMRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterAssuntoCRMResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirAssuntoCRMRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="assunto" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirAssuntoCRMResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirAcaoAssuntoCRMRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="acao" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirAcaoAssuntoCRMResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarEstagioAssuntoCRMRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="idAssunto" type="xsd:string" />
+    <wsdl:part name="estagioAssunto" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarEstagioAssuntoCRMResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarSituacaoAcaoCRMRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="idAcao" type="xsd:string" />
+    <wsdl:part name="situacaoAcao" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarSituacaoAcaoCRMResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContaReceberServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="conta" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContaReceberServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterContaReceberServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterContaReceberServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContasReceberServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="numero_doc" type="xsd:string" />
+    <wsdl:part name="numero_banco" type="xsd:string" />
+    <wsdl:part name="nome_cliente" type="xsd:string" />
+    <wsdl:part name="data_ini_emissao" type="xsd:string" />
+    <wsdl:part name="data_fim_emissao" type="xsd:string" />
+    <wsdl:part name="data_ini_vencimento" type="xsd:string" />
+    <wsdl:part name="data_fim_vencimento" type="xsd:string" />
+    <wsdl:part name="situacao" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContasReceberServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="baixarContaReceberServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="conta" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="baixarContaReceberServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContaPagarServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="conta" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContaPagarServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterContaPagarServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterContaPagarServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContasPagarServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="numero_doc" type="xsd:string" />
+    <wsdl:part name="nome_cliente" type="xsd:string" />
+    <wsdl:part name="data_ini_emissao" type="xsd:string" />
+    <wsdl:part name="data_fim_emissao" type="xsd:string" />
+    <wsdl:part name="data_ini_vencimento" type="xsd:string" />
+    <wsdl:part name="data_fim_vencimento" type="xsd:string" />
+    <wsdl:part name="situacao" type="xsd:string" />
+    <wsdl:part name="pagina" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContasPagarServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="baixarContaPagarServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="conta" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="baixarContaPagarServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContatosXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pesquisa" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="apiKey" type="xsd:string - deprecated" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContatosXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterContatoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="apiKey" type="xsd:string - deprecated" />
+  </wsdl:message>
+  <wsdl:message name="obterContatoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContatoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="contatoXML" type="xsd:string" />
+    <wsdl:part name="apiKey" type="xsd:string - deprecated" />
+  </wsdl:message>
+  <wsdl:message name="incluirContatoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarContatoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="contatoXML" type="xsd:string" />
+    <wsdl:part name="apiKey" type="xsd:string - deprecated" />
+  </wsdl:message>
+  <wsdl:message name="alterarContatoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarGruposTagXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pesquisa" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarGruposTagXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirGrupoTagXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="grupoXML" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirGrupoTagXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarGrupoTagXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="grupoXML" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarGrupoTagXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarTagXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pesquisa" type="xsd:string" />
+    <wsdl:part name="idGrupo" type="xsd:int" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarTagXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirTagXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="tagXML" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirTagXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarTagXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="tagXML" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarTagXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarProdutosXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pesquisa" type="xsd:string" />
+    <wsdl:part name="apiKey" type="xsd:string - deprecated" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarProdutosXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterProdutoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="apiKey" type="xsd:string - deprecated" />
+  </wsdl:message>
+  <wsdl:message name="obterProdutoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirProdutoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="produtoXML" type="xsd:string" />
+    <wsdl:part name="apiKey" type="xsd:string - deprecated" />
+  </wsdl:message>
+  <wsdl:message name="incluirProdutoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="alterarProdutoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="produtoXML" type="xsd:string" />
+    <wsdl:part name="apiKey" type="xsd:string - deprecated" />
+  </wsdl:message>
+  <wsdl:message name="alterarProdutoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterEstoqueProdutoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:string" />
+    <wsdl:part name="apiKey" type="xsd:string - deprecated" />
+    <wsdl:part name="codigo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterEstoqueProdutoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterEstruturaProdutoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="obterEstruturaProdutoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterTagsProdutoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="obterTagsProdutoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="listaAtualizacoesProdutosXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="dataAlteracao" type="xsd:string" />
+    <wsdl:part name="apiKey" type="xsd:string - deprecated" />
+  </wsdl:message>
+  <wsdl:message name="listaAtualizacoesProdutosXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="listaAtualizacoesEstoqueXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="dataAlteracao" type="xsd:string" />
+    <wsdl:part name="apiKey" type="xsd:string - deprecated" />
+  </wsdl:message>
+  <wsdl:message name="listaAtualizacoesEstoqueXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarPedidosXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="numero" type="xsd:string" />
+    <wsdl:part name="cliente" type="xsd:string" />
+    <wsdl:part name="cpf_cnpj" type="xsd:string" />
+    <wsdl:part name="dataInicial" type="xsd:string" />
+    <wsdl:part name="dataFinal" type="xsd:string" />
+    <wsdl:part name="situacao" type="xsd:string" />
+    <wsdl:part name="numeroEcommerce" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarPedidosXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterPedidoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="obterPedidoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirPedidoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="pedidoXML" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirPedidoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarNotasFiscaisXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="serie" type="xsd:string" />
+    <wsdl:part name="numero" type="xsd:string" />
+    <wsdl:part name="cliente" type="xsd:string" />
+    <wsdl:part name="cpf_cnpj" type="xsd:string" />
+    <wsdl:part name="dataInicial" type="xsd:string" />
+    <wsdl:part name="dataFinal" type="xsd:string" />
+    <wsdl:part name="situacao" type="xsd:string" />
+    <wsdl:part name="numeroEcommerce" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarNotasFiscaisXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterNotaFiscalXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="obterNotaFiscalXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirNotaFiscalXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="notaXML" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirNotaFiscalXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarNotasServicoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="serie" type="xsd:string" />
+    <wsdl:part name="numero" type="xsd:string" />
+    <wsdl:part name="numeroRPS" type="xsd:string" />
+    <wsdl:part name="cliente" type="xsd:string" />
+    <wsdl:part name="cpf_cnpj" type="xsd:string" />
+    <wsdl:part name="dataInicial" type="xsd:string" />
+    <wsdl:part name="dataFinal" type="xsd:string" />
+    <wsdl:part name="situacao" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarNotasServicoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterNotaServicoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="obterNotaServicoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirNotaServicoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="notaXML" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirNotaServicoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContratosXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="cliente" type="xsd:string" />
+    <wsdl:part name="cpf_cnpj" type="xsd:string" />
+    <wsdl:part name="dataInicial" type="xsd:string" />
+    <wsdl:part name="dataFinal" type="xsd:string" />
+    <wsdl:part name="situacao" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="pesquisarContratosXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="obterContratoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="obterContratoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContratoXMLRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="contratoXML" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="incluirContratoXMLResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="expedicaoLiberarObjetosServiceRequest">
+    <wsdl:part name="token" type="xsd:string" />
+    <wsdl:part name="idObjetos" type="xsd:string" />
+    <wsdl:part name="tipoObjetos" type="xsd:string" />
+    <wsdl:part name="formato" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="expedicaoLiberarObjetosServiceResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="tinywsdlPortType">
+    <wsdl:operation name="pesquisarVendedoresService">
+      <documentation>Metodo para pesquisar vendedores</documentation>
+      <wsdl:input message="tns:pesquisarVendedoresServiceRequest" />
+      <wsdl:output message="tns:pesquisarVendedoresServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContatosService">
+      <documentation>Metodo para pesquisar contatos</documentation>
+      <wsdl:input message="tns:pesquisarContatosServiceRequest" />
+      <wsdl:output message="tns:pesquisarContatosServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterContatoService">
+      <documentation>Metodo para obter contato</documentation>
+      <wsdl:input message="tns:obterContatoServiceRequest" />
+      <wsdl:output message="tns:obterContatoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirContatoService">
+      <documentation>Metodo para incluir um contato</documentation>
+      <wsdl:input message="tns:incluirContatoServiceRequest" />
+      <wsdl:output message="tns:incluirContatoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarContatoService">
+      <documentation>Metodo para alterar um contato</documentation>
+      <wsdl:input message="tns:alterarContatoServiceRequest" />
+      <wsdl:output message="tns:alterarContatoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarGruposTagService">
+      <documentation>Metodo para pesquisar grupos de tags</documentation>
+      <wsdl:input message="tns:pesquisarGruposTagServiceRequest" />
+      <wsdl:output message="tns:pesquisarGruposTagServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirGrupoTagService">
+      <documentation>Metodo destinado a fazer a inclusao de um grupo de tags</documentation>
+      <wsdl:input message="tns:incluirGrupoTagServiceRequest" />
+      <wsdl:output message="tns:incluirGrupoTagServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarGrupoTagService">
+      <documentation>Metodo para alterar um grupo de tags</documentation>
+      <wsdl:input message="tns:alterarGrupoTagServiceRequest" />
+      <wsdl:output message="tns:alterarGrupoTagServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarTagService">
+      <documentation>Metodo para pesquisar uma tag</documentation>
+      <wsdl:input message="tns:pesquisarTagServiceRequest" />
+      <wsdl:output message="tns:pesquisarTagServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirTagService">
+      <documentation>Metodo para incluir uma tag</documentation>
+      <wsdl:input message="tns:incluirTagServiceRequest" />
+      <wsdl:output message="tns:incluirTagServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarTagService">
+      <documentation>Metodo para alterar uma tag</documentation>
+      <wsdl:input message="tns:alterarTagServiceRequest" />
+      <wsdl:output message="tns:alterarTagServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarListasPrecosService">
+      <documentation>Metodo para pesquisar listas de preÃ§os</documentation>
+      <wsdl:input message="tns:pesquisarListasPrecosServiceRequest" />
+      <wsdl:output message="tns:pesquisarListasPrecosServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterListasPrecosExcecoesService">
+      <documentation>Metodo para pesquisar listas de preÃ§os</documentation>
+      <wsdl:input message="tns:obterListasPrecosExcecoesServiceRequest" />
+      <wsdl:output message="tns:obterListasPrecosExcecoesServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarProdutosService">
+      <documentation>Metodo para pesquisar produtos</documentation>
+      <wsdl:input message="tns:pesquisarProdutosServiceRequest" />
+      <wsdl:output message="tns:pesquisarProdutosServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterProdutoService">
+      <documentation>Metodo para obter um produto</documentation>
+      <wsdl:input message="tns:obterProdutoServiceRequest" />
+      <wsdl:output message="tns:obterProdutoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterAnexosProdutoService">
+      <documentation>Metodo para obter anexos de um produto</documentation>
+      <wsdl:input message="tns:obterAnexosProdutoServiceRequest" />
+      <wsdl:output message="tns:obterAnexosProdutoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirProdutoService">
+      <documentation>Metodo para incluir um produto</documentation>
+      <wsdl:input message="tns:incluirProdutoServiceRequest" />
+      <wsdl:output message="tns:incluirProdutoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarProdutoService">
+      <documentation>Metodo para alterar um produto</documentation>
+      <wsdl:input message="tns:alterarProdutoServiceRequest" />
+      <wsdl:output message="tns:alterarProdutoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="atualizarEstoqueProdutoService">
+      <documentation>Metodo para atualizar o estoque de um produto</documentation>
+      <wsdl:input message="tns:atualizarEstoqueProdutoServiceRequest" />
+      <wsdl:output message="tns:atualizarEstoqueProdutoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterEstoqueProdutoService">
+      <documentation>Metodo para obter estoque de um produto</documentation>
+      <wsdl:input message="tns:obterEstoqueProdutoServiceRequest" />
+      <wsdl:output message="tns:obterEstoqueProdutoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterEstruturaProdutoService">
+      <documentation>Metodo para obter estrutura de um produto</documentation>
+      <wsdl:input message="tns:obterEstruturaProdutoServiceRequest" />
+      <wsdl:output message="tns:obterEstruturaProdutoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterTagsProdutoService">
+      <documentation>Metodo para obter tags de um produto</documentation>
+      <wsdl:input message="tns:obterTagsProdutoServiceRequest" />
+      <wsdl:output message="tns:obterTagsProdutoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listaAtualizacoesProdutosService">
+      <documentation>Metodo para listar as atualizacoes de um produto</documentation>
+      <wsdl:input message="tns:listaAtualizacoesProdutosServiceRequest" />
+      <wsdl:output message="tns:listaAtualizacoesProdutosServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listaAtualizacoesEstoqueService">
+      <documentation>Metodo para listar atualizacoes de estoque</documentation>
+      <wsdl:input message="tns:listaAtualizacoesEstoqueServiceRequest" />
+      <wsdl:output message="tns:listaAtualizacoesEstoqueServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarPedidosService">
+      <documentation>Metodo para pesquisar pedidos</documentation>
+      <wsdl:input message="tns:pesquisarPedidosServiceRequest" />
+      <wsdl:output message="tns:pesquisarPedidosServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterPedidoService">
+      <documentation>Metodo para obter um pedido</documentation>
+      <wsdl:input message="tns:obterPedidoServiceRequest" />
+      <wsdl:output message="tns:obterPedidoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirPedidoService">
+      <documentation>Metodo para incluir pedido</documentation>
+      <wsdl:input message="tns:incluirPedidoServiceRequest" />
+      <wsdl:output message="tns:incluirPedidoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarSituacaoPedidoService">
+      <documentation>Metodo para atualizar a situaÃ§Ã£o de um pedido</documentation>
+      <wsdl:input message="tns:alterarSituacaoPedidoServiceRequest" />
+      <wsdl:output message="tns:alterarSituacaoPedidoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirMarcadoresPedidoService">
+      <documentation>Metodo para incluir marcadores em um pedido</documentation>
+      <wsdl:input message="tns:incluirMarcadoresPedidoServiceRequest" />
+      <wsdl:output message="tns:incluirMarcadoresPedidoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="removerMarcadoresPedidoService">
+      <documentation>Metodo para incluir marcadores em um pedido</documentation>
+      <wsdl:input message="tns:removerMarcadoresPedidoServiceRequest" />
+      <wsdl:output message="tns:removerMarcadoresPedidoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarNotasFiscaisService">
+      <documentation>Metodo para pesquisar notas fiscais</documentation>
+      <wsdl:input message="tns:pesquisarNotasFiscaisServiceRequest" />
+      <wsdl:output message="tns:pesquisarNotasFiscaisServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterNotaFiscalService">
+      <documentation>Metodo para obter uma nota fiscal</documentation>
+      <wsdl:input message="tns:obterNotaFiscalServiceRequest" />
+      <wsdl:output message="tns:obterNotaFiscalServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirNotaFiscalService">
+      <documentation>Metodo para incluir uma nota fiscal</documentation>
+      <wsdl:input message="tns:incluirNotaFiscalServiceRequest" />
+      <wsdl:output message="tns:incluirNotaFiscalServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterXMLNotaFiscal">
+      <documentation>Metodo para obter o XML de uma nota fiscal</documentation>
+      <wsdl:input message="tns:obterXMLNotaFiscalRequest" />
+      <wsdl:output message="tns:obterXMLNotaFiscalResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterXMLNotaFiscalService">
+      <documentation>Metodo para obter o XML de uma nota fiscal</documentation>
+      <wsdl:input message="tns:obterXMLNotaFiscalServiceRequest" />
+      <wsdl:output message="tns:obterXMLNotaFiscalServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterLinkNotaFiscalService">
+      <documentation>Metodo para obter link de uma nota fiscal</documentation>
+      <wsdl:input message="tns:obterLinkNotaFiscalServiceRequest" />
+      <wsdl:output message="tns:obterLinkNotaFiscalServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="emitirNotaFiscalService">
+      <documentation>Metodo para emitir uma nota fiscal</documentation>
+      <wsdl:input message="tns:emitirNotaFiscalServiceRequest" />
+      <wsdl:output message="tns:emitirNotaFiscalServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarNotasServicoService">
+      <documentation>Metodo para pesquisar notas fiscais servico</documentation>
+      <wsdl:input message="tns:pesquisarNotasServicoServiceRequest" />
+      <wsdl:output message="tns:pesquisarNotasServicoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterNotaServicoService">
+      <documentation>Metodo para obter uma nota de servico</documentation>
+      <wsdl:input message="tns:obterNotaServicoServiceRequest" />
+      <wsdl:output message="tns:obterNotaServicoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirNotaServicoService">
+      <documentation>Metodo para incluir uma nota de servico</documentation>
+      <wsdl:input message="tns:incluirNotaServicoServiceRequest" />
+      <wsdl:output message="tns:incluirNotaServicoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="enviarNotaServicoService">
+      <documentation>Metodo para enviar uma nota de serviÃ§o</documentation>
+      <wsdl:input message="tns:enviarNotaServicoServiceRequest" />
+      <wsdl:output message="tns:enviarNotaServicoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="consultarNotaServicoService">
+      <documentation>Metodo para consultar uma nota de serviÃ§o</documentation>
+      <wsdl:input message="tns:consultarNotaServicoServiceRequest" />
+      <wsdl:output message="tns:consultarNotaServicoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContratosService">
+      <documentation>Metodo para pesquisar contratos</documentation>
+      <wsdl:input message="tns:pesquisarContratosServiceRequest" />
+      <wsdl:output message="tns:pesquisarContratosServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterContratoService">
+      <documentation>Metodo para obter um contrato</documentation>
+      <wsdl:input message="tns:obterContratoServiceRequest" />
+      <wsdl:output message="tns:obterContratoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirContratoService">
+      <documentation>Metodo para incluir um contrato</documentation>
+      <wsdl:input message="tns:incluirContratoServiceRequest" />
+      <wsdl:output message="tns:incluirContratoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarContratoService">
+      <documentation>Metodo para alterar um contrato</documentation>
+      <wsdl:input message="tns:alterarContratoServiceRequest" />
+      <wsdl:output message="tns:alterarContratoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirContratoAdicionalService">
+      <documentation>Metodo para incluir um contrato adicional</documentation>
+      <wsdl:input message="tns:incluirContratoAdicionalServiceRequest" />
+      <wsdl:output message="tns:incluirContratoAdicionalServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContratoAdicionalService">
+      <documentation>Metodo para pesquisar contratos adicionais</documentation>
+      <wsdl:input message="tns:pesquisarContratoAdicionalServiceRequest" />
+      <wsdl:output message="tns:pesquisarContratoAdicionalServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="excluirContratoAdicionalService">
+      <documentation>Metodo para excluir contrato adicional</documentation>
+      <wsdl:input message="tns:excluirContratoAdicionalServiceRequest" />
+      <wsdl:output message="tns:excluirContratoAdicionalServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="gerarOrdemProducaPedidoService">
+      <documentation>Metodo para gerar uma ordem de producao a partir de um pedido</documentation>
+      <wsdl:input message="tns:gerarOrdemProducaPedidoServiceRequest" />
+      <wsdl:output message="tns:gerarOrdemProducaPedidoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="gerarNotaFiscalPedidoService">
+      <documentation>Metodo para gerar nota fiscal de um pedido</documentation>
+      <wsdl:input message="tns:gerarNotaFiscalPedidoServiceRequest" />
+      <wsdl:output message="tns:gerarNotaFiscalPedidoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cadastrarCodigoRastreamentoPedidoService">
+      <documentation>Metodo para cadastrar codigo de rastreamento de um pedido</documentation>
+      <wsdl:input message="tns:cadastrarCodigoRastreamentoPedidoServiceRequest" />
+      <wsdl:output message="tns:cadastrarCodigoRastreamentoPedidoServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="cadastrarCodigoRastreamentoNotaFiscalService">
+      <documentation>Metodo para cadastrar codigo de rastreamento de uma nota fiscal</documentation>
+      <wsdl:input message="tns:cadastrarCodigoRastreamentoNotaFiscalServiceRequest" />
+      <wsdl:output message="tns:cadastrarCodigoRastreamentoNotaFiscalServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listarEstagiosAssuntos">
+      <documentation>Metodo para listar estagios de assuntos</documentation>
+      <wsdl:input message="tns:listarEstagiosAssuntosRequest" />
+      <wsdl:output message="tns:listarEstagiosAssuntosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarAssuntosCRM">
+      <documentation>Metodo para pesquisar assuntos do CRM</documentation>
+      <wsdl:input message="tns:pesquisarAssuntosCRMRequest" />
+      <wsdl:output message="tns:pesquisarAssuntosCRMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterAssuntoCRM">
+      <documentation>Metodo para obter um assunto do CRM</documentation>
+      <wsdl:input message="tns:obterAssuntoCRMRequest" />
+      <wsdl:output message="tns:obterAssuntoCRMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirAssuntoCRM">
+      <documentation>Metodo para incluir um assunto do CRM</documentation>
+      <wsdl:input message="tns:incluirAssuntoCRMRequest" />
+      <wsdl:output message="tns:incluirAssuntoCRMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirAcaoAssuntoCRM">
+      <documentation>Metodo para incluir acao de um assunto do CRM</documentation>
+      <wsdl:input message="tns:incluirAcaoAssuntoCRMRequest" />
+      <wsdl:output message="tns:incluirAcaoAssuntoCRMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarEstagioAssuntoCRM">
+      <documentation>Metodo para alterar estagio de um assunto do CRM</documentation>
+      <wsdl:input message="tns:alterarEstagioAssuntoCRMRequest" />
+      <wsdl:output message="tns:alterarEstagioAssuntoCRMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarSituacaoAcaoCRM">
+      <documentation>Metodo para alterar situacao de uma acao do CRM</documentation>
+      <wsdl:input message="tns:alterarSituacaoAcaoCRMRequest" />
+      <wsdl:output message="tns:alterarSituacaoAcaoCRMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirContaReceberService">
+      <documentation>Metodo para incluir uma conta receber</documentation>
+      <wsdl:input message="tns:incluirContaReceberServiceRequest" />
+      <wsdl:output message="tns:incluirContaReceberServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterContaReceberService">
+      <documentation>Metodo para obter uma conta a receber</documentation>
+      <wsdl:input message="tns:obterContaReceberServiceRequest" />
+      <wsdl:output message="tns:obterContaReceberServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContasReceberService">
+      <documentation>Metodo para pesquisar contas a receber</documentation>
+      <wsdl:input message="tns:pesquisarContasReceberServiceRequest" />
+      <wsdl:output message="tns:pesquisarContasReceberServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="baixarContaReceberService">
+      <documentation>Metodo para baixar uma conta a receber</documentation>
+      <wsdl:input message="tns:baixarContaReceberServiceRequest" />
+      <wsdl:output message="tns:baixarContaReceberServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirContaPagarService">
+      <documentation>Metodo para incluir uma conta a pagar</documentation>
+      <wsdl:input message="tns:incluirContaPagarServiceRequest" />
+      <wsdl:output message="tns:incluirContaPagarServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterContaPagarService">
+      <documentation>Metodo para obter uma conta a pagar</documentation>
+      <wsdl:input message="tns:obterContaPagarServiceRequest" />
+      <wsdl:output message="tns:obterContaPagarServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContasPagarService">
+      <documentation>Metodo para pesquisar contas a pagar</documentation>
+      <wsdl:input message="tns:pesquisarContasPagarServiceRequest" />
+      <wsdl:output message="tns:pesquisarContasPagarServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="baixarContaPagarService">
+      <documentation>Metodo para baixar uma conta a pagar</documentation>
+      <wsdl:input message="tns:baixarContaPagarServiceRequest" />
+      <wsdl:output message="tns:baixarContaPagarServiceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContatosXML">
+      <documentation>Metodo para pesquisar Contatos - Deprecated</documentation>
+      <wsdl:input message="tns:pesquisarContatosXMLRequest" />
+      <wsdl:output message="tns:pesquisarContatosXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterContatoXML">
+      <documentation>Metodo para obter os dados de um contato </documentation>
+      <wsdl:input message="tns:obterContatoXMLRequest" />
+      <wsdl:output message="tns:obterContatoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirContatoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:incluirContatoXMLRequest" />
+      <wsdl:output message="tns:incluirContatoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarContatoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:alterarContatoXMLRequest" />
+      <wsdl:output message="tns:alterarContatoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarGruposTagXML">
+      <documentation>Deprecated</documentation>
+      <wsdl:input message="tns:pesquisarGruposTagXMLRequest" />
+      <wsdl:output message="tns:pesquisarGruposTagXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirGrupoTagXML">
+      <documentation>Deprecated</documentation>
+      <wsdl:input message="tns:incluirGrupoTagXMLRequest" />
+      <wsdl:output message="tns:incluirGrupoTagXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarGrupoTagXML">
+      <documentation>Deprecated</documentation>
+      <wsdl:input message="tns:alterarGrupoTagXMLRequest" />
+      <wsdl:output message="tns:alterarGrupoTagXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarTagXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:pesquisarTagXMLRequest" />
+      <wsdl:output message="tns:pesquisarTagXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirTagXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:incluirTagXMLRequest" />
+      <wsdl:output message="tns:incluirTagXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarTagXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:alterarTagXMLRequest" />
+      <wsdl:output message="tns:alterarTagXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarProdutosXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:pesquisarProdutosXMLRequest" />
+      <wsdl:output message="tns:pesquisarProdutosXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterProdutoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:obterProdutoXMLRequest" />
+      <wsdl:output message="tns:obterProdutoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirProdutoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:incluirProdutoXMLRequest" />
+      <wsdl:output message="tns:incluirProdutoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="alterarProdutoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:alterarProdutoXMLRequest" />
+      <wsdl:output message="tns:alterarProdutoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterEstoqueProdutoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:obterEstoqueProdutoXMLRequest" />
+      <wsdl:output message="tns:obterEstoqueProdutoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterEstruturaProdutoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:obterEstruturaProdutoXMLRequest" />
+      <wsdl:output message="tns:obterEstruturaProdutoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterTagsProdutoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:obterTagsProdutoXMLRequest" />
+      <wsdl:output message="tns:obterTagsProdutoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listaAtualizacoesProdutosXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:listaAtualizacoesProdutosXMLRequest" />
+      <wsdl:output message="tns:listaAtualizacoesProdutosXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="listaAtualizacoesEstoqueXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:listaAtualizacoesEstoqueXMLRequest" />
+      <wsdl:output message="tns:listaAtualizacoesEstoqueXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarPedidosXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:pesquisarPedidosXMLRequest" />
+      <wsdl:output message="tns:pesquisarPedidosXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterPedidoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:obterPedidoXMLRequest" />
+      <wsdl:output message="tns:obterPedidoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirPedidoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:incluirPedidoXMLRequest" />
+      <wsdl:output message="tns:incluirPedidoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarNotasFiscaisXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:pesquisarNotasFiscaisXMLRequest" />
+      <wsdl:output message="tns:pesquisarNotasFiscaisXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterNotaFiscalXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:obterNotaFiscalXMLRequest" />
+      <wsdl:output message="tns:obterNotaFiscalXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirNotaFiscalXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:incluirNotaFiscalXMLRequest" />
+      <wsdl:output message="tns:incluirNotaFiscalXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarNotasServicoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:pesquisarNotasServicoXMLRequest" />
+      <wsdl:output message="tns:pesquisarNotasServicoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterNotaServicoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:obterNotaServicoXMLRequest" />
+      <wsdl:output message="tns:obterNotaServicoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirNotaServicoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:incluirNotaServicoXMLRequest" />
+      <wsdl:output message="tns:incluirNotaServicoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContratosXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:pesquisarContratosXMLRequest" />
+      <wsdl:output message="tns:pesquisarContratosXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="obterContratoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:obterContratoXMLRequest" />
+      <wsdl:output message="tns:obterContratoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="incluirContratoXML">
+      <documentation>Metodo para importar o arquivo XML </documentation>
+      <wsdl:input message="tns:incluirContratoXMLRequest" />
+      <wsdl:output message="tns:incluirContratoXMLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="expedicaoLiberarObjetosService">
+      <documentation>Metodo para enviar objetos para a expediÃ§Ã£o</documentation>
+      <wsdl:input message="tns:expedicaoLiberarObjetosServiceRequest" />
+      <wsdl:output message="tns:expedicaoLiberarObjetosServiceResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="tinywsdlBinding" type="tns:tinywsdlPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="pesquisarVendedoresService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarVendedoresService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContatosService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarContatosService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterContatoService">
+      <soap:operation soapAction="urn:tinywsdl#obterContatoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirContatoService">
+      <soap:operation soapAction="urn:tinywsdl#incluirContatoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarContatoService">
+      <soap:operation soapAction="urn:tinywsdl#alterarContatoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarGruposTagService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarGruposTagService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirGrupoTagService">
+      <soap:operation soapAction="urn:tinywsdl#incluirGrupoTagService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarGrupoTagService">
+      <soap:operation soapAction="urn:tinywsdl#alterarGrupoTagService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarTagService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarTagService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirTagService">
+      <soap:operation soapAction="urn:tinywsdl#incluirTagService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarTagService">
+      <soap:operation soapAction="urn:tinywsdl#alterarTagService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarListasPrecosService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarListasPrecosService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterListasPrecosExcecoesService">
+      <soap:operation soapAction="urn:tinywsdl#obterListasPrecosExcecoesService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarProdutosService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarProdutosService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterProdutoService">
+      <soap:operation soapAction="urn:tinywsdl#obterProdutoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterAnexosProdutoService">
+      <soap:operation soapAction="urn:tinywsdl#obterAnexosProdutoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirProdutoService">
+      <soap:operation soapAction="urn:tinywsdl#incluirProdutoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarProdutoService">
+      <soap:operation soapAction="urn:tinywsdl#alterarProdutoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="atualizarEstoqueProdutoService">
+      <soap:operation soapAction="urn:tinywsdl#atualizarEstoqueProdutoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterEstoqueProdutoService">
+      <soap:operation soapAction="urn:tinywsdl#obterEstoqueProdutoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterEstruturaProdutoService">
+      <soap:operation soapAction="urn:tinywsdl#obterEstruturaProdutoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterTagsProdutoService">
+      <soap:operation soapAction="urn:tinywsdl#obterTagsProdutoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listaAtualizacoesProdutosService">
+      <soap:operation soapAction="urn:tinywsdl#listaAtualizacoesProdutosService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listaAtualizacoesEstoqueService">
+      <soap:operation soapAction="urn:tinywsdl#listaAtualizacoesEstoqueService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarPedidosService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarPedidosService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterPedidoService">
+      <soap:operation soapAction="urn:tinywsdl#obterPedidoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirPedidoService">
+      <soap:operation soapAction="urn:tinywsdl#incluirPedidoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarSituacaoPedidoService">
+      <soap:operation soapAction="urn:tinywsdl#alterarSituacaoPedidoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirMarcadoresPedidoService">
+      <soap:operation soapAction="urn:tinywsdl#incluirMarcadoresPedidoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removerMarcadoresPedidoService">
+      <soap:operation soapAction="urn:tinywsdl#removerMarcadoresPedidoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarNotasFiscaisService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarNotasFiscaisService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterNotaFiscalService">
+      <soap:operation soapAction="urn:tinywsdl#obterNotaFiscalService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirNotaFiscalService">
+      <soap:operation soapAction="urn:tinywsdl#incluirNotaFiscalService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterXMLNotaFiscal">
+      <soap:operation soapAction="urn:tinywsdl#obterXMLNotaFiscal" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterXMLNotaFiscalService">
+      <soap:operation soapAction="urn:tinywsdl#obterXMLNotaFiscalService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterLinkNotaFiscalService">
+      <soap:operation soapAction="urn:tinywsdl#obterLinkNotaFiscalService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="emitirNotaFiscalService">
+      <soap:operation soapAction="urn:tinywsdl#emitirNotaFiscalService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarNotasServicoService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarNotasServicoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterNotaServicoService">
+      <soap:operation soapAction="urn:tinywsdl#obterNotaServicoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirNotaServicoService">
+      <soap:operation soapAction="urn:tinywsdl#incluirNotaServicoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enviarNotaServicoService">
+      <soap:operation soapAction="urn:tinywsdl#enviarNotaServicoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarNotaServicoService">
+      <soap:operation soapAction="urn:tinywsdl#consultarNotaServicoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContratosService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarContratosService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterContratoService">
+      <soap:operation soapAction="urn:tinywsdl#obterContratoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirContratoService">
+      <soap:operation soapAction="urn:tinywsdl#incluirContratoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarContratoService">
+      <soap:operation soapAction="urn:tinywsdl#alterarContratoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirContratoAdicionalService">
+      <soap:operation soapAction="urn:tinywsdl#incluirContratoAdicionalService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContratoAdicionalService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarContratoAdicionalService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="excluirContratoAdicionalService">
+      <soap:operation soapAction="urn:tinywsdl#excluirContratoAdicionalService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gerarOrdemProducaPedidoService">
+      <soap:operation soapAction="urn:tinywsdl#gerarOrdemProducaPedidoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="gerarNotaFiscalPedidoService">
+      <soap:operation soapAction="urn:tinywsdl#gerarNotaFiscalPedidoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastrarCodigoRastreamentoPedidoService">
+      <soap:operation soapAction="urn:tinywsdl#cadastrarCodigoRastreamentoPedidoService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cadastrarCodigoRastreamentoNotaFiscalService">
+      <soap:operation soapAction="urn:tinywsdl#cadastrarCodigoRastreamentoNotaFiscalService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listarEstagiosAssuntos">
+      <soap:operation soapAction="urn:tinywsdl#listarEstagiosAssuntos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarAssuntosCRM">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarAssuntosCRM" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterAssuntoCRM">
+      <soap:operation soapAction="urn:tinywsdl#obterAssuntoCRM" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirAssuntoCRM">
+      <soap:operation soapAction="urn:tinywsdl#incluirAssuntoCRM" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirAcaoAssuntoCRM">
+      <soap:operation soapAction="urn:tinywsdl#incluirAcaoAssuntoCRM" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarEstagioAssuntoCRM">
+      <soap:operation soapAction="urn:tinywsdl#alterarEstagioAssuntoCRM" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarSituacaoAcaoCRM">
+      <soap:operation soapAction="urn:tinywsdl#alterarSituacaoAcaoCRM" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirContaReceberService">
+      <soap:operation soapAction="urn:tinywsdl#incluirContaReceberService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterContaReceberService">
+      <soap:operation soapAction="urn:tinywsdl#obterContaReceberService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContasReceberService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarContasReceberService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="baixarContaReceberService">
+      <soap:operation soapAction="urn:tinywsdl#baixarContaReceberService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirContaPagarService">
+      <soap:operation soapAction="urn:tinywsdl#incluirContaPagarService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterContaPagarService">
+      <soap:operation soapAction="urn:tinywsdl#obterContaPagarService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContasPagarService">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarContasPagarService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="baixarContaPagarService">
+      <soap:operation soapAction="urn:tinywsdl#baixarContaPagarService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContatosXML">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarContatosXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterContatoXML">
+      <soap:operation soapAction="urn:tinywsdl#obterContatoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirContatoXML">
+      <soap:operation soapAction="urn:tinywsdl#incluirContatoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarContatoXML">
+      <soap:operation soapAction="urn:tinywsdl#alterarContatoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarGruposTagXML">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarGruposTagXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirGrupoTagXML">
+      <soap:operation soapAction="urn:tinywsdl#incluirGrupoTagXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarGrupoTagXML">
+      <soap:operation soapAction="urn:tinywsdl#alterarGrupoTagXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarTagXML">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarTagXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirTagXML">
+      <soap:operation soapAction="urn:tinywsdl#incluirTagXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarTagXML">
+      <soap:operation soapAction="urn:tinywsdl#alterarTagXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarProdutosXML">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarProdutosXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterProdutoXML">
+      <soap:operation soapAction="urn:tinywsdl#obterProdutoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirProdutoXML">
+      <soap:operation soapAction="urn:tinywsdl#incluirProdutoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="alterarProdutoXML">
+      <soap:operation soapAction="urn:tinywsdl#alterarProdutoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterEstoqueProdutoXML">
+      <soap:operation soapAction="urn:tinywsdl#obterEstoqueProdutoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterEstruturaProdutoXML">
+      <soap:operation soapAction="urn:tinywsdl#obterEstruturaProdutoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterTagsProdutoXML">
+      <soap:operation soapAction="urn:tinywsdl#obterTagsProdutoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listaAtualizacoesProdutosXML">
+      <soap:operation soapAction="urn:tinywsdl#listaAtualizacoesProdutosXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="listaAtualizacoesEstoqueXML">
+      <soap:operation soapAction="urn:tinywsdl#listaAtualizacoesEstoqueXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarPedidosXML">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarPedidosXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterPedidoXML">
+      <soap:operation soapAction="urn:tinywsdl#obterPedidoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirPedidoXML">
+      <soap:operation soapAction="urn:tinywsdl#incluirPedidoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarNotasFiscaisXML">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarNotasFiscaisXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterNotaFiscalXML">
+      <soap:operation soapAction="urn:tinywsdl#obterNotaFiscalXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirNotaFiscalXML">
+      <soap:operation soapAction="urn:tinywsdl#incluirNotaFiscalXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarNotasServicoXML">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarNotasFiscaisXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterNotaServicoXML">
+      <soap:operation soapAction="urn:tinywsdl#obterNotaServicoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirNotaServicoXML">
+      <soap:operation soapAction="urn:tinywsdl#incluirNotaServicoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pesquisarContratosXML">
+      <soap:operation soapAction="urn:tinywsdl#pesquisarContratosXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterContratoXML">
+      <soap:operation soapAction="urn:tinywsdl#obterContratoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incluirContratoXML">
+      <soap:operation soapAction="urn:tinywsdl#incluirContratoXML" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="expedicaoLiberarObjetosService">
+      <soap:operation soapAction="urn:tinywsdl#expedicaoLiberarObjetosService" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="tinywsdl">
+    <wsdl:port name="tinywsdlPort" binding="tns:tinywsdlBinding">
+      <soap:address location="https://api.tiny.com.br:443/api2.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

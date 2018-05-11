@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AppIntegracaoCECTiny.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SenhaCec" Type="System.String" Scope="User">
+      <Value Profile="(Default)">bxc@1958</Value>
+    </Setting>
+    <Setting Name="UsuarioCec" Type="System.String" Scope="User">
+      <Value Profile="(Default)">9878</Value>
+    </Setting>
+    <Setting Name="TokenTinyService" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dac40dfd0b1ac51e0ba731515e33bf937c5c6c16</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
