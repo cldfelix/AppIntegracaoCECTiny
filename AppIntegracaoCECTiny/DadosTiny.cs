@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Json;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,6 +66,7 @@ namespace AppIntegracaoCECTiny
 
     public class Item
     {
+        public int id_produto { get; set; }
         public string codigo { get; set; }
         public string descricao { get; set; }
         public string unidade { get; set; }
@@ -79,18 +81,20 @@ namespace AppIntegracaoCECTiny
         public string valor { get; set; }
         public string obs { get; set; }
         public string forma_pagamento { get; set; }
+        public string meio_pagamento { get; set; }
     }
-
-
 
     [XmlRoot("retorno")]
     public class Retorno
     {
         [XmlElement("status_processamento")]
         public int status_processamento { get; set; }
+
         [XmlElement("status")]
         public string status { get; set; }
 
+        [XmlElement("notas_fiscais")]
+        public NotasFiscais notas_fiscais { get; set; }
 
         [XmlElement("registros")]
         public Registros registros { get; set; }
@@ -144,20 +148,15 @@ namespace AppIntegracaoCECTiny
         public string erro { get; set; }
     }
 
+
+
     public class ControleTiny
     {
-        public static void GravarTxt()
-        {
-            FileInfo aFile = new FileInfo("c:/raptors.txt");
-
-            if(aFile.Exists)
-                Console.WriteLine("Esse arquivo existe");
-            if(File.Exists("raptors.txt"))
-                Console.WriteLine("Esse arquivo existe");
-
-        }
         private static readonly string TokenTiny = Settings.Default.TokenTinyService;
+       
 
+
+       
         public static string GetXMLFromObject(object o)
         {
 

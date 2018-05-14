@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using AppIntegracaoCECTiny.Properties;
 
@@ -30,21 +31,14 @@ namespace AppIntegracaoCECTiny
 
             if (res.Length < 1)
             {
-                Console.WriteLine("Nenhum pedido foi encontrado na base de dados da C&c!\n");
+                Console.Clear();
+                Console.WriteLine("Nenhum pedido foi encontrado na base de dados da C&C!\n");
 
                 Console.WriteLine("Total de pedidos: {0}.", totalPedidosIntegrados + totalPedidosComErros);
                 Console.WriteLine("Total de pedidos integrados: {0}.", totalPedidosIntegrados);
                 Console.WriteLine("Total de pedidos com erros na integração: {0}.\n", totalPedidosIntegrados);
              
-                StringBuilder logo = new StringBuilder();
-                logo.Append("---------------------------------------------------\n");
-                logo.Append("-             Intgração desenvolvida por:         -\n");
-                logo.Append("-                  Claudinei Felix                -\n");
-                logo.Append("-      Contato: claudinei.felix@outlook.com       -\n");
-                logo.Append("-      Telefone: (19) 9954-60517                  -\n");
-                logo.Append("---------------------------------------------------\n");
-
-                Console.WriteLine(logo.ToString());
+           
 
 
                 return;
@@ -53,21 +47,15 @@ namespace AppIntegracaoCECTiny
             foreach (var pedido in res)
             {
                 Console.WriteLine("Processando pedido vindo da C&C número: {0}.", pedido.header.numpedidoantigo);
-                var listaItens = new List<Item>();
-
-                foreach (var pedidoIten in pedido.itens)
-                {
-                    var novoItem = new Item
+                var listaItens = pedido.itens.Select(pedidoIten => new Item
                     {
                         codigo = pedidoIten.codbarra,
                         descricao = pedidoIten.descricao,
                         quantidade = pedidoIten.qtde,
                         unidade = pedidoIten.unidmaior,
                         valor_unitario = pedidoIten.precounit,
-                    };
-                    listaItens.Add(novoItem);
-                    
-                }
+                    })
+                    .ToList();
 
                 var clienteTemp = new Cliente
                 {
@@ -109,7 +97,6 @@ namespace AppIntegracaoCECTiny
                     forma_frete = "",
                 };
 
-
                 var ret = ctrTiny.EnviarDadosTiny(dadosTiny);
 
                 if (ret.status.ToUpper() == "ERRO")
@@ -147,10 +134,12 @@ namespace AppIntegracaoCECTiny
 
                
             }
-
+            Console.Clear();
             Console.WriteLine("Total de pedidos: {0}.", totalPedidosIntegrados + totalPedidosComErros);
             Console.WriteLine("Total de pedidos integrados: {0}.", totalPedidosIntegrados);
             Console.WriteLine("Total de pedidos com erros na integração: {0}.", totalPedidosIntegrados);
+            return;
+
            
         }
 
