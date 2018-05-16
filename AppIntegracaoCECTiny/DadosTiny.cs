@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Json;
 using System.ServiceModel;
 using System.Text;
@@ -27,6 +28,7 @@ namespace AppIntegracaoCECTiny
 
 
         [XmlArray("itens"), XmlArrayItem(typeof(Item), ElementName = "item")]
+        
         public List<Item> items { get; set; }
         [XmlArray("parcelas"), XmlArrayItem(typeof(Parcela), ElementName = "parcela")]
         public List<Parcela> parcelas { get; set; }
@@ -95,6 +97,9 @@ namespace AppIntegracaoCECTiny
 
         [XmlElement("notas_fiscais")]
         public NotasFiscais notas_fiscais { get; set; }
+
+        [XmlElement("nota_fiscal")]
+        public nota_fiscal nota_fiscal { get; set; }
 
         [XmlElement("registros")]
         public Registros registros { get; set; }
@@ -223,7 +228,8 @@ namespace AppIntegracaoCECTiny
         }
 
         public dynamic EnviarDadosTiny(DadosTiny dadosEnviarTiny)
-        {          
+        {
+            Console.WriteLine("Enviando pedido: {0} na Tiny", dadosEnviarTiny.numero_pedido_ecommerce);
                 try
                 {
 

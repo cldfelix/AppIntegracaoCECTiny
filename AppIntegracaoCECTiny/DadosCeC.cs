@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using AppIntegracaoCECTiny.Properties;
 
 namespace AppIntegracaoCECTiny
@@ -15,6 +16,7 @@ namespace AppIntegracaoCECTiny
 
         public void ConfirmarRecebimentoPedido2(decimal pedido, bool sincronizarPedido)
         {
+            Console.WriteLine("Retirando pedido: {0} da fila da C&C", pedido);
             var client = new CeCService.PedidoCompraFornecedoresSoapClient();
             client.ConfirmarRecebimentoPedido(Login, Senha, pedido, sincronizarPedido);
             client.Close();
@@ -22,8 +24,10 @@ namespace AppIntegracaoCECTiny
         }
         public void BuscarDadosNaCeC2()
         {
+            Console.WriteLine("\nBuscando pedidos na C&C");
             var totalPedidosIntegrados = 0;
             var totalPedidosComErros = 0;
+            var qtdDePedidos = 0;
             var ctrTiny = new ControleTiny();
             var result = new CeCService.PedidoCompraFornecedoresSoapClient();
             var res = result.ListarPedidosNaoVisualizados(Login, Senha).pedidos;
@@ -32,20 +36,26 @@ namespace AppIntegracaoCECTiny
             if (res.Length < 1)
             {
                 Console.Clear();
-                Console.WriteLine("Nenhum pedido foi encontrado na base de dados da C&C!\n");
-
+                Console.WriteLine("\nNenhum pedido foi encontrado na base de dados da C&C!\n");
                 Console.WriteLine("Total de pedidos: {0}.", totalPedidosIntegrados + totalPedidosComErros);
                 Console.WriteLine("Total de pedidos integrados: {0}.", totalPedidosIntegrados);
-                Console.WriteLine("Total de pedidos com erros na integração: {0}.\n", totalPedidosIntegrados);
-             
-           
-
+                Console.WriteLine("Total de pedidos com erros na integração: {0}.", totalPedidosIntegrados);
+                Console.WriteLine("\nPressione qualquer tecla para voltar ao menu principal.");
 
                 return;
             }
 
             foreach (var pedido in res)
             {
+                ++qtdDePedidos;
+                if (qtdDePedidos > 20)
+                {
+                    Thread.Sleep(60000);
+                    Console.WriteLine("Tempo de espera acionado devido a Limites da API...\n O processo vai continuar a depois de 1 minuto!");
+                    Console.WriteLine();
+                    qtdDePedidos = 0;
+                }
+
                 Console.WriteLine("Processando pedido vindo da C&C número: {0}.", pedido.header.numpedidoantigo);
                 var listaItens = pedido.itens.Select(pedidoIten => new Item
                     {
@@ -138,6 +148,8 @@ namespace AppIntegracaoCECTiny
             Console.WriteLine("Total de pedidos: {0}.", totalPedidosIntegrados + totalPedidosComErros);
             Console.WriteLine("Total de pedidos integrados: {0}.", totalPedidosIntegrados);
             Console.WriteLine("Total de pedidos com erros na integração: {0}.", totalPedidosIntegrados);
+            Console.WriteLine("\nPressione qualquer tecla para voltar ao menu principal.");
+
             return;
 
            

@@ -19,7 +19,8 @@ namespace AppIntegracaoCECTiny
                 Console.Clear();
                 Logotipo();
                 var menu = new StringBuilder();
-                menu.Append("=================================================");
+                menu.Append("\t\tMENU PRINCIPAL                    ");
+                menu.Append("\n===================================================");
                 menu.Append("\nDigite a opção escolhida:");
                 menu.Append("\n1 => Integrar pedidos da C&C no Tiny");
                 menu.Append("\n2 => Baixar notas fiscais da Tiny em txt ");
@@ -55,13 +56,13 @@ namespace AppIntegracaoCECTiny
                             else
                             {
                                 Console.Clear();
-                                Console.WriteLine("Data com formato inválido!");
+                                Console.WriteLine("\nData com formato inválido!");
                             }
                             
                             break;
                         case 0:
                             Console.Clear();
-                            Console.WriteLine("\n\nSaindo do programa..............!");
+                            Console.WriteLine("\n\nSaindo do programa..............");
                             Thread.Sleep(1500);
                             Environment.Exit(1);
 
@@ -88,6 +89,7 @@ namespace AppIntegracaoCECTiny
             logo.Append("---------------------------------------------------\n");
             logo.Append("-             Integração desenvolvida por:        -\n");
             logo.Append("-                  Claudinei Felix                -\n");
+            logo.Append("-                                                 -\n");
             logo.Append("-      Contato: claudinei.felix@outlook.com       -\n");
             logo.Append("-      Telefone: (19) 9954-60517                  -\n");
             logo.Append("---------------------------------------------------\n");
