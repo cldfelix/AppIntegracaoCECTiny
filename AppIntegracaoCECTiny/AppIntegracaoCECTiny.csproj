@@ -90,7 +90,6 @@
     </Compile>
     <Compile Include="DadosCeC.cs" />
     <Compile Include="DadosTiny.cs" />
-    <Compile Include="NotasFiscais - Cópia .cs" />
     <Compile Include="NotasFiscais.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
