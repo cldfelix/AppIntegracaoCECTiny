@@ -39,12 +39,12 @@ namespace AppIntegracaoCECTiny
                             break;
                         case 2:
                             Console.Clear();
-                            //Console.WriteLine("Digite a data incicial para busca! \nEx. 01/04/2017");
-                            //var dataInicial = Convert.ToString(Console.ReadLine());
-                            var dataInicial = "01/05/2018";
-                            var dataFinal = "15/05/2018";
-                            //Console.WriteLine("Digite a data final para busca! \nEx. 18/04/2017");
-                            //var dataFinal = Convert.ToString(Console.ReadLine());
+                            Console.WriteLine("Digite a data incicial para busca! \nEx. 01/04/2017");
+                            var dataInicial = Convert.ToString(Console.ReadLine());
+                            //var dataInicial = "01/05/2018";
+                            //var dataFinal = "15/05/2018";
+                            Console.WriteLine("Digite a data final para busca! \nEx. 18/04/2017");
+                            var dataFinal = Convert.ToString(Console.ReadLine());
 
                             var matchInicio = Regex.Match(dataInicial, @"^\d{1,2}/\d{1,2}/\d{4}$");
                             var matchFim = Regex.Match(dataFinal, @"^\d{1,2}/\d{1,2}/\d{4}$");

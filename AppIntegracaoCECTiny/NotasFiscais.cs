@@ -176,7 +176,7 @@ namespace AppIntegracaoCECTiny
 
         public void BaixarNotasFiscaisTiny(string dataInicial, string dataFinal)
         {
-            Console.WriteLine("Baixando notas fiscais com DANFE gerado e com datas ente\n {0} e {1}.", dataInicial, dataFinal);
+            Console.WriteLine("Baixando notas fiscais com DANFE gerado e com datas entre\n{0} e {1}.", dataInicial, dataFinal);
             Console.WriteLine();
             this._nomeDoArquivo = dataInicial.Replace('/', '-') + " a " + dataFinal.Replace('/', '-') + ".txt";
 
@@ -188,6 +188,9 @@ namespace AppIntegracaoCECTiny
                 var jsonObjeto = ObjectToXML(ret, typeof(Retorno));
                 client.Close();
 
+
+                if(jsonObjeto.notas_fiscais ==null || jsonObjeto.notas_fiscais == "" )
+                    return;
                 foreach (var nota in (jsonObjeto.notas_fiscais.nota_fiscal))
                 {
                     _numerosDasNotas.Add(nota.id); 
