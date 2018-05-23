@@ -71,9 +71,13 @@ namespace AppIntegracaoCECTiny
         public int id_produto { get; set; }
         public string codigo { get; set; }
         public string descricao { get; set; }
-        public string unidade { get; set; }
+        public string unidade {get; set; }
+        public string ncm { get; set; }
         public decimal quantidade { get; set; }
         public decimal valor_unitario { get; set; }
+        public decimal valor_total { get; set; }
+        public string cfop { get; set; }
+        public string natureza { get; set; }
     }
 
     public class Parcela

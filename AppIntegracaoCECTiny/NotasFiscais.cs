@@ -17,7 +17,7 @@ namespace AppIntegracaoCECTiny
 {
 
 
-     public class NotasFiscais
+    public class NotasFiscais
     {
         [XmlElement("nota_fiscal")]
         public List<nota_fiscal> nota_fiscal { get; set; }
@@ -147,7 +147,7 @@ namespace AppIntegracaoCECTiny
             return obj;
         }
 
-        public void GravarTxt( string notasCriadas)
+        public void GravarTxt(string notasCriadas)
         {
 
             //var nomeDoArquivo = "14-05-2018 a 05-05-2018.txt";
@@ -189,16 +189,21 @@ namespace AppIntegracaoCECTiny
                 client.Close();
 
 
-                if(jsonObjeto.notas_fiscais ==null || jsonObjeto.notas_fiscais == "" )
+                if (jsonObjeto.codigo_erro == 20)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Nenhuma nota fiscal entre as datas {0} e {1} foram encontradas!", dataInicial, dataFinal);
                     return;
+                }
+
                 foreach (var nota in (jsonObjeto.notas_fiscais.nota_fiscal))
                 {
-                    _numerosDasNotas.Add(nota.id); 
+                    _numerosDasNotas.Add(nota.id);
                 }
 
                 CriarNotasFiscais();
                 return;
-               
+
                 //GravarTxt(nomeDoArquivo, ret);
                 //return;
             }
@@ -231,10 +236,10 @@ namespace AppIntegracaoCECTiny
                     //var ret = client.incluirPedidoServiceAsync(TokenTiny, dadosEnviarTiny, "JSON");
                     var ret = client.obterNotaFiscalService(TokenTiny, numerosDasNota.ToString(), "XML");
                     var jsonObjeto = ObjectToXML(ret, typeof(Retorno));
-                 
-                    client.Close();
 
-                    stringNotaFinal  = stringNotaFinal +  EscreverTxt(jsonObjeto);
+                    client.Close();
+                    stringNotaFinal = stringNotaFinal + EscreverTxt(jsonObjeto);
+
                 }
                 catch (Exception e)
                 {
@@ -261,50 +266,69 @@ namespace AppIntegracaoCECTiny
                    4000000770.40000000138.67000001070.86000000054.08000000770.40000000000.00000000000.00000000000,00000000000.00000000824.4800000000030000011.89                                                          
                    9  
                  */
-                if (nota.nota_fiscal == null)
-                {
-                    Console.WriteLine("aqui");
-                }
-                var numeropedido = (nota.nota_fiscal.numero).ToString();
+
+                var numeropedido = (nota.nota_fiscal.numero_ecommerce).ToString();
                 var numpedido = numeropedido.PadLeft(19, '0');
                 var dataEmissao = (nota.nota_fiscal.data_emissao).Replace("/", string.Empty);
                 var dataVencimento = (nota.nota_fiscal.data_saida).Replace("/", string.Empty); //ver com marcelo
+                var numeroNota = (nota.nota_fiscal.numero).ToString().PadLeft(9, '0');
+                var cpof = (nota.nota_fiscal.itens[0].cfop).PadLeft(4, ' ');
+                var cnpj = "13657998000143".PadLeft(14,'0');
+                var filler = " ".PadLeft(117, ' ');
+                var alicotas = "00,00".PadLeft(5, '0');
+                var numeroFci = " ".PadLeft(36, ' ');
+
 
                 // Header da Nota Fiscal (Tipo 1)
-                txt.AppendLine("1" + "9878" + "00000" + "12" + numpedido + "000000" + dataEmissao + dataVencimento + "0");
+                txt.AppendLine("1" + "9878" + "00000" + " 43" + numpedido + "000000" + dataEmissao + dataVencimento + "1" + cpof + cnpj + "O"+  numeroNota);
+                txt.AppendLine();
 
                 // Item da Nota Fiscal (Tipo 2)
                 foreach (var iten in nota.nota_fiscal.itens)
                 {
+                    var qtd = (int) iten.quantidade;
                     txt.AppendLine("2"
-                                   + iten.codigo.PadLeft(25, '0')
-                                   + (iten.quantidade.ToString(CultureInfo.InvariantCulture)).PadLeft(10, '0')
-                                   + iten.valor_unitario.ToString(CultureInfo.InstalledUICulture).PadLeft(12, '0')
+                                   + iten.codigo.PadRight(25, ' ')
+                                   + qtd.ToString().PadLeft(10, '0')
+                                   + iten.valor_unitario.ToString().Replace(".", ",").PadLeft(12, '0')
+                                   + alicotas
+                                   + (nota.nota_fiscal.valor_ipi).ToString().PadLeft(12, '0')
+                                   + alicotas
+                                   + (nota.nota_fiscal.valor_icms).ToString().PadLeft(12, '0')
+                                   + ' '
+                                   + numeroFci
+                                   + "0000"
+                                   + " ".PadLeft(76, ' ')
                                    );
                 }
 
                 // Transportadora (Tipo 3)
-                txt.AppendLine("3" + nota.nota_fiscal.transportador.cpf_cnpj.PadRight(14, '0'));
+                txt.AppendLine("3"
+                               + nota.nota_fiscal.transportador.cpf_cnpj.PadRight(14, ' ')
+                               + " ".PadLeft(184, ' '));
+
 
                 // Trailler da Nota Fiscal (Tipo 4)
-                txt.AppendLine("4"
-                               + (nota.nota_fiscal.base_icms.ToString(CultureInfo.InstalledUICulture)).PadLeft(12, '0')     // Base de Calculo ICMS
-                               + nota.nota_fiscal.valor_icms.ToString(CultureInfo.InstalledUICulture).PadLeft(12, '0')      // Valor do ICMS
-                               + nota.nota_fiscal.base_icms_st.ToString(CultureInfo.InstalledUICulture).PadLeft(12, '0')    // Base de Calculo ICMS subst
-                               + nota.nota_fiscal.valor_icms_st.ToString(CultureInfo.InvariantCulture).PadLeft(12, '0')     // Valor ICMS Substituição
-                               + nota.nota_fiscal.valor_nota.ToString(CultureInfo.InstalledUICulture).PadLeft(12, '0')       // Valor total dos produtos
-                               + nota.nota_fiscal.valor_frete.ToString(CultureInfo.InvariantCulture).PadLeft(12, '0')       // valor do Frete
-                               + nota.nota_fiscal.valor_seguro.ToString(CultureInfo.InvariantCulture).PadLeft(12, '0')      // Valor do seguro
-                               + nota.nota_fiscal.valor_outras.ToString(CultureInfo.InvariantCulture).PadLeft(12, '0')      // Outras despesas acessórias
-                               + nota.nota_fiscal.valor_ipi.ToString(CultureInfo.InvariantCulture).PadLeft(12, '0')          // valor total do IPI
-                               + nota.nota_fiscal.valor_nota.ToString(CultureInfo.InvariantCulture).PadLeft(12, '0')         // Valor total da nota fiscal
-                               + nota.nota_fiscal.quantidade_volumes.ToString(CultureInfo.InvariantCulture).PadLeft(10, '0')// Quantidade
-                               + nota.nota_fiscal.peso_bruto.ToString(CultureInfo.InvariantCulture).PadLeft(10, '0')         // Peso bruto
-                                   );
+                txt.AppendLine(("4"
+                                + nota.nota_fiscal.base_icms.ToString().PadLeft(12, '0') // Base de Calculo ICMS
+                                + nota.nota_fiscal.valor_icms.ToString().PadLeft(12, '0') // Valor do ICMS
+                                + nota.nota_fiscal.base_icms_st.ToString()
+                                    .PadLeft(12, '0') // Base de Calculo ICMS subst
+                                + nota.nota_fiscal.valor_icms_st.ToString().PadLeft(12, '0') // Valor ICMS Substituição
+                                + nota.nota_fiscal.valor_nota.ToString().PadLeft(12, '0') // Valor total dos produtos
+                                + nota.nota_fiscal.valor_frete.ToString().PadLeft(12, '0') // valor do Frete
+                                + nota.nota_fiscal.valor_seguro.ToString().PadLeft(12, '0') // Valor do seguro
+                                + nota.nota_fiscal.valor_outras.ToString()
+                                    .PadLeft(12, '0') // Outras despesas acessórias
+                                + nota.nota_fiscal.valor_ipi.ToString().PadLeft(12, '0') // valor total do IPI
+                                + nota.nota_fiscal.valor_nota.ToString().PadLeft(12, '0') // Valor total da nota fiscal
+                                + nota.nota_fiscal.quantidade_volumes.ToString().PadLeft(10, '0') // Quantidade
+                                + nota.nota_fiscal.peso_bruto.ToString().PadLeft(10, '0') // Peso bruto
+                    ).Replace(",", "."));
 
 
                 // Trailler do arquivo (Fim de arquivo, Tipo 9)
-                txt.AppendLine("9");
+                txt.AppendLine("9".PadRight(199, ' '));
                 txt.AppendLine();
 
                 return txt.ToString();
@@ -315,9 +339,9 @@ namespace AppIntegracaoCECTiny
                 throw;
             }
 
-            
-            
+
+
         }
-        
+
     }
 }
