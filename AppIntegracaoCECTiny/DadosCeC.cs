@@ -59,7 +59,7 @@ namespace AppIntegracaoCECTiny
                 Console.WriteLine("Processando pedido vindo da C&C número: {0}.", pedido.header.numpedidoantigo);
                 var listaItens = pedido.itens.Select(pedidoIten => new Item
                     {
-                        codigo = pedidoIten.codbarra,
+                        codigo = pedidoIten.codproddf,
                         descricao = pedidoIten.descricao,
                         quantidade = pedidoIten.qtde,
                         unidade = pedidoIten.unidmaior,
