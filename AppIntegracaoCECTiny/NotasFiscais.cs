@@ -272,7 +272,20 @@ namespace AppIntegracaoCECTiny
                 var dataEmissao = (nota.nota_fiscal.data_emissao).Replace("/", string.Empty);
                 var dataVencimento = (nota.nota_fiscal.data_saida).Replace("/", string.Empty); //ver com marcelo
                 var numeroNota = (nota.nota_fiscal.numero).ToString().PadLeft(9, '0');
-                var cpof = (nota.nota_fiscal.itens[0].cfop).PadLeft(4, ' ');
+                
+                //var cpof = (nota.nota_fiscal.itens[0].cfop).PadLeft(4, ' ');
+                var cpof = string.Empty;
+                var ufNota = (nota.nota_fiscal.cliente.uf).ToUpper();
+                if(ufNota == "SP")
+                {
+                    cpof = "00005405";
+
+                }
+                else
+                {
+                    cpof = "00006102";
+                }
+
                 var cnpj = "13657998000143".PadLeft(14,'0');
                 var filler = " ".PadLeft(117, ' ');
                 var alicotas = "00,00".PadLeft(5, '0');

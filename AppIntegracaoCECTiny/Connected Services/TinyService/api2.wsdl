@@ -135,6 +135,7 @@
     <wsdl:part name="ordem" type="xsd:string" />
     <wsdl:part name="idTag" type="xsd:string" />
     <wsdl:part name="idListaPreco" type="xsd:integer" />
+    <wsdl:part name="gtin" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="pesquisarProdutosServiceResponse">
     <wsdl:part name="return" type="xsd:string" />
@@ -145,14 +146,6 @@
     <wsdl:part name="formato" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="obterProdutoServiceResponse">
-    <wsdl:part name="return" type="xsd:string" />
-  </wsdl:message>
-  <wsdl:message name="obterAnexosProdutoServiceRequest">
-    <wsdl:part name="token" type="xsd:string" />
-    <wsdl:part name="id" type="xsd:integer" />
-    <wsdl:part name="formato" type="xsd:string" />
-  </wsdl:message>
-  <wsdl:message name="obterAnexosProdutoServiceResponse">
     <wsdl:part name="return" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="incluirProdutoServiceRequest">
@@ -485,6 +478,7 @@
   <wsdl:message name="gerarNotaFiscalPedidoServiceRequest">
     <wsdl:part name="token" type="xsd:string" />
     <wsdl:part name="id" type="xsd:integer" />
+    <wsdl:part name="modelo" type="xsd:string" />
     <wsdl:part name="formato" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="gerarNotaFiscalPedidoServiceResponse">
@@ -593,6 +587,7 @@
     <wsdl:part name="token" type="xsd:string" />
     <wsdl:part name="id" type="xsd:integer" />
     <wsdl:part name="formato" type="xsd:string" />
+    <wsdl:part name="obter_link_boleto" type="xsd:string" />
   </wsdl:message>
   <wsdl:message name="obterContaReceberServiceResponse">
     <wsdl:part name="return" type="xsd:string" />
@@ -607,6 +602,7 @@
     <wsdl:part name="data_ini_vencimento" type="xsd:string" />
     <wsdl:part name="data_fim_vencimento" type="xsd:string" />
     <wsdl:part name="situacao" type="xsd:string" />
+    <wsdl:part name="id_origem" type="xsd:string" />
     <wsdl:part name="pagina" type="xsd:integer" />
     <wsdl:part name="formato" type="xsd:string" />
   </wsdl:message>
@@ -1000,11 +996,6 @@
       <documentation>Metodo para obter um produto</documentation>
       <wsdl:input message="tns:obterProdutoServiceRequest" />
       <wsdl:output message="tns:obterProdutoServiceResponse" />
-    </wsdl:operation>
-    <wsdl:operation name="obterAnexosProdutoService">
-      <documentation>Metodo para obter anexos de um produto</documentation>
-      <wsdl:input message="tns:obterAnexosProdutoServiceRequest" />
-      <wsdl:output message="tns:obterAnexosProdutoServiceResponse" />
     </wsdl:operation>
     <wsdl:operation name="incluirProdutoService">
       <documentation>Metodo para incluir um produto</documentation>
@@ -1557,15 +1548,6 @@
     </wsdl:operation>
     <wsdl:operation name="obterProdutoService">
       <soap:operation soapAction="urn:tinywsdl#obterProdutoService" style="rpc" />
-      <wsdl:input>
-        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="obterAnexosProdutoService">
-      <soap:operation soapAction="urn:tinywsdl#obterAnexosProdutoService" style="rpc" />
       <wsdl:input>
         <soap:body use="encoded" namespace="urn:tinywsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>

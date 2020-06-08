@@ -135,11 +135,11 @@ namespace AppIntegracaoCECTiny.TinyService {
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#pesquisarProdutosService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        string pesquisarProdutosService(string token, string pesquisa, string formato, string pagina, string ordem, string idTag, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string idListaPreco);
+        string pesquisarProdutosService(string token, string pesquisa, string formato, string pagina, string ordem, string idTag, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string idListaPreco, string gtin);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#pesquisarProdutosService", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<string> pesquisarProdutosServiceAsync(string token, string pesquisa, string formato, string pagina, string ordem, string idTag, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string idListaPreco);
+        System.Threading.Tasks.Task<string> pesquisarProdutosServiceAsync(string token, string pesquisa, string formato, string pagina, string ordem, string idTag, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string idListaPreco, string gtin);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#obterProdutoService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -149,15 +149,6 @@ namespace AppIntegracaoCECTiny.TinyService {
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#obterProdutoService", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
         System.Threading.Tasks.Task<string> obterProdutoServiceAsync(string token, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string id, string formato);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#obterAnexosProdutoService", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        string obterAnexosProdutoService(string token, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string id, string formato);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#obterAnexosProdutoService", ReplyAction="*")]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<string> obterAnexosProdutoServiceAsync(string token, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string id, string formato);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#incluirProdutoService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -502,11 +493,11 @@ namespace AppIntegracaoCECTiny.TinyService {
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#gerarNotaFiscalPedidoService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        string gerarNotaFiscalPedidoService(string token, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string id, string formato);
+        string gerarNotaFiscalPedidoService(string token, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string id, string modelo, string formato);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#gerarNotaFiscalPedidoService", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<string> gerarNotaFiscalPedidoServiceAsync(string token, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string id, string formato);
+        System.Threading.Tasks.Task<string> gerarNotaFiscalPedidoServiceAsync(string token, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string id, string modelo, string formato);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#cadastrarCodigoRastreamentoPedidoService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -601,20 +592,20 @@ namespace AppIntegracaoCECTiny.TinyService {
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#obterContaReceberService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        string obterContaReceberService(string token, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string id, string formato);
+        string obterContaReceberService(string token, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string id, string formato, string obter_link_boleto);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#obterContaReceberService", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<string> obterContaReceberServiceAsync(string token, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string id, string formato);
+        System.Threading.Tasks.Task<string> obterContaReceberServiceAsync(string token, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string id, string formato, string obter_link_boleto);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#pesquisarContasReceberService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        string pesquisarContasReceberService(string token, string numero_doc, string numero_banco, string nome_cliente, string data_ini_emissao, string data_fim_emissao, string data_ini_vencimento, string data_fim_vencimento, string situacao, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string pagina, string formato);
+        string pesquisarContasReceberService(string token, string numero_doc, string numero_banco, string nome_cliente, string data_ini_emissao, string data_fim_emissao, string data_ini_vencimento, string data_fim_vencimento, string situacao, string id_origem, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string pagina, string formato);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#pesquisarContasReceberService", ReplyAction="*")]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        System.Threading.Tasks.Task<string> pesquisarContasReceberServiceAsync(string token, string numero_doc, string numero_banco, string nome_cliente, string data_ini_emissao, string data_fim_emissao, string data_ini_vencimento, string data_fim_vencimento, string situacao, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string pagina, string formato);
+        System.Threading.Tasks.Task<string> pesquisarContasReceberServiceAsync(string token, string numero_doc, string numero_banco, string nome_cliente, string data_ini_emissao, string data_fim_emissao, string data_ini_vencimento, string data_fim_vencimento, string situacao, string id_origem, [System.Xml.Serialization.SoapElementAttribute(DataType="integer")] string pagina, string formato);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:tinywsdl#baixarContaReceberService", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(Style=System.ServiceModel.OperationFormatStyle.Rpc, SupportFaults=true, Use=System.ServiceModel.OperationFormatUse.Encoded)]
@@ -1081,12 +1072,12 @@ namespace AppIntegracaoCECTiny.TinyService {
             return base.Channel.obterListasPrecosExcecoesServiceAsync(token, idListaPreco, idProduto, formato, pagina);
         }
         
-        public string pesquisarProdutosService(string token, string pesquisa, string formato, string pagina, string ordem, string idTag, string idListaPreco) {
-            return base.Channel.pesquisarProdutosService(token, pesquisa, formato, pagina, ordem, idTag, idListaPreco);
+        public string pesquisarProdutosService(string token, string pesquisa, string formato, string pagina, string ordem, string idTag, string idListaPreco, string gtin) {
+            return base.Channel.pesquisarProdutosService(token, pesquisa, formato, pagina, ordem, idTag, idListaPreco, gtin);
         }
         
-        public System.Threading.Tasks.Task<string> pesquisarProdutosServiceAsync(string token, string pesquisa, string formato, string pagina, string ordem, string idTag, string idListaPreco) {
-            return base.Channel.pesquisarProdutosServiceAsync(token, pesquisa, formato, pagina, ordem, idTag, idListaPreco);
+        public System.Threading.Tasks.Task<string> pesquisarProdutosServiceAsync(string token, string pesquisa, string formato, string pagina, string ordem, string idTag, string idListaPreco, string gtin) {
+            return base.Channel.pesquisarProdutosServiceAsync(token, pesquisa, formato, pagina, ordem, idTag, idListaPreco, gtin);
         }
         
         public string obterProdutoService(string token, string id, string formato) {
@@ -1095,14 +1086,6 @@ namespace AppIntegracaoCECTiny.TinyService {
         
         public System.Threading.Tasks.Task<string> obterProdutoServiceAsync(string token, string id, string formato) {
             return base.Channel.obterProdutoServiceAsync(token, id, formato);
-        }
-        
-        public string obterAnexosProdutoService(string token, string id, string formato) {
-            return base.Channel.obterAnexosProdutoService(token, id, formato);
-        }
-        
-        public System.Threading.Tasks.Task<string> obterAnexosProdutoServiceAsync(string token, string id, string formato) {
-            return base.Channel.obterAnexosProdutoServiceAsync(token, id, formato);
         }
         
         public string incluirProdutoService(string token, string produto, string formato) {
@@ -1411,12 +1394,12 @@ namespace AppIntegracaoCECTiny.TinyService {
             return base.Channel.gerarOrdemProducaPedidoServiceAsync(token, id, lancarEstoque, formato);
         }
         
-        public string gerarNotaFiscalPedidoService(string token, string id, string formato) {
-            return base.Channel.gerarNotaFiscalPedidoService(token, id, formato);
+        public string gerarNotaFiscalPedidoService(string token, string id, string modelo, string formato) {
+            return base.Channel.gerarNotaFiscalPedidoService(token, id, modelo, formato);
         }
         
-        public System.Threading.Tasks.Task<string> gerarNotaFiscalPedidoServiceAsync(string token, string id, string formato) {
-            return base.Channel.gerarNotaFiscalPedidoServiceAsync(token, id, formato);
+        public System.Threading.Tasks.Task<string> gerarNotaFiscalPedidoServiceAsync(string token, string id, string modelo, string formato) {
+            return base.Channel.gerarNotaFiscalPedidoServiceAsync(token, id, modelo, formato);
         }
         
         public string cadastrarCodigoRastreamentoPedidoService(string token, string id, string codigoRastreamento, string urlRastreamento, string formaEnvio, string transportadora, string volumes, string pesoBruto, string pesoLiquido, string dataPrevista, string observacoes, string formato) {
@@ -1499,20 +1482,20 @@ namespace AppIntegracaoCECTiny.TinyService {
             return base.Channel.incluirContaReceberServiceAsync(token, conta, formato);
         }
         
-        public string obterContaReceberService(string token, string id, string formato) {
-            return base.Channel.obterContaReceberService(token, id, formato);
+        public string obterContaReceberService(string token, string id, string formato, string obter_link_boleto) {
+            return base.Channel.obterContaReceberService(token, id, formato, obter_link_boleto);
         }
         
-        public System.Threading.Tasks.Task<string> obterContaReceberServiceAsync(string token, string id, string formato) {
-            return base.Channel.obterContaReceberServiceAsync(token, id, formato);
+        public System.Threading.Tasks.Task<string> obterContaReceberServiceAsync(string token, string id, string formato, string obter_link_boleto) {
+            return base.Channel.obterContaReceberServiceAsync(token, id, formato, obter_link_boleto);
         }
         
-        public string pesquisarContasReceberService(string token, string numero_doc, string numero_banco, string nome_cliente, string data_ini_emissao, string data_fim_emissao, string data_ini_vencimento, string data_fim_vencimento, string situacao, string pagina, string formato) {
-            return base.Channel.pesquisarContasReceberService(token, numero_doc, numero_banco, nome_cliente, data_ini_emissao, data_fim_emissao, data_ini_vencimento, data_fim_vencimento, situacao, pagina, formato);
+        public string pesquisarContasReceberService(string token, string numero_doc, string numero_banco, string nome_cliente, string data_ini_emissao, string data_fim_emissao, string data_ini_vencimento, string data_fim_vencimento, string situacao, string id_origem, string pagina, string formato) {
+            return base.Channel.pesquisarContasReceberService(token, numero_doc, numero_banco, nome_cliente, data_ini_emissao, data_fim_emissao, data_ini_vencimento, data_fim_vencimento, situacao, id_origem, pagina, formato);
         }
         
-        public System.Threading.Tasks.Task<string> pesquisarContasReceberServiceAsync(string token, string numero_doc, string numero_banco, string nome_cliente, string data_ini_emissao, string data_fim_emissao, string data_ini_vencimento, string data_fim_vencimento, string situacao, string pagina, string formato) {
-            return base.Channel.pesquisarContasReceberServiceAsync(token, numero_doc, numero_banco, nome_cliente, data_ini_emissao, data_fim_emissao, data_ini_vencimento, data_fim_vencimento, situacao, pagina, formato);
+        public System.Threading.Tasks.Task<string> pesquisarContasReceberServiceAsync(string token, string numero_doc, string numero_banco, string nome_cliente, string data_ini_emissao, string data_fim_emissao, string data_ini_vencimento, string data_fim_vencimento, string situacao, string id_origem, string pagina, string formato) {
+            return base.Channel.pesquisarContasReceberServiceAsync(token, numero_doc, numero_banco, nome_cliente, data_ini_emissao, data_fim_emissao, data_ini_vencimento, data_fim_vencimento, situacao, id_origem, pagina, formato);
         }
         
         public string baixarContaReceberService(string token, string conta, string formato) {

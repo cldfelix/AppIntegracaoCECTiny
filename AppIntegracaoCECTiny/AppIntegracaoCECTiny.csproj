@@ -51,7 +51,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>9328E948D4984D1D7DF32CCB57EC7589D3734003</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>E98F310B55DA9D81A22670CA021FDFA155E63516</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>AppIntegracaoCECTiny_TemporaryKey.pfx</ManifestKeyFile>
